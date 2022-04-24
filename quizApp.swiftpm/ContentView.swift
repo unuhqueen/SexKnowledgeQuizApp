@@ -10,7 +10,7 @@ struct ContentView: View {
                 QuizCompletedView(gameManagerVM: gameManagerVM)
             } else {
                 VStack {
-                    ReusableText(text: "Sex Knowledge Quiz!", size: 30)
+                    ReusableText(text: "Sexual Knowledge Quiz!", size: 30)
                         .padding(.horizontal)
                     ReusableText(text: gameManagerVM.model.quizModel.question, size: 25)
                         .padding(.top, 80)

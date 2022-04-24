@@ -44,7 +44,7 @@ class GameManagerVM : ObservableObject {
                         if(self.model.quizModel.explanation != nil) {
                             self.showExplanation = true
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             self.showExplanation = false
                             GameManagerVM.currentIndex = GameManagerVM.currentIndex + 1
                             self.model = GameManagerVM.createGameModel(i: GameManagerVM.currentIndex)
@@ -91,10 +91,6 @@ class GameManagerVM : ObservableObject {
 extension GameManagerVM {
     static var quizData: [QuizModel] {
         [
-            QuizModel(question: "Using condom is one of the way to prevent STD.",
-                      answer: "True",
-                      optionsList: [QuizOption(id: 11, optionId: "True", color: Color.blue),
-                                    QuizOption(id: 12, optionId: "False", color: Color.red)]),
             QuizModel(question: "Touching the genitals with dirty hands during masturbation can lead to bacterial invasion.",
                       answer: "True",
                       optionsList: [QuizOption(id: 21, optionId: "True", color: Color.blue),
@@ -164,22 +160,27 @@ extension GameManagerVM {
                                     QuizOption(id: 162, optionId: "False", color: Color.red)]),
             QuizModel(question: "The menstrual cycle is a contraception method that avoids sex from 6 to 12 days before the next period.",
                       answer: "False",
-                      explanation: "It's from 12 to 19 days.",
+                      explanation: "It should consider both shortest cycle and longest cycle",
                       optionsList: [QuizOption(id: 171, optionId: "True", color: Color.blue),
                                     QuizOption(id: 172, optionId: "False", color: Color.red)]),
             QuizModel(question: "Biological orgasms of women can only be obtained through vaginal.",
-                      answer: "True",
+                      answer: "False",
+                      explanation: "It can be caused in the whole body, even in the thought too.",
                       optionsList: [QuizOption(id: 181, optionId: "True", color: Color.blue),
                                     QuizOption(id: 182, optionId: "False", color: Color.red)]),
             QuizModel(question: "Not taking birth control pills for two to three days does not significantly affect the effectiveness of contraception.",
-                      answer: "True",
+                      answer: "False",
+                      explanation: "It can lower the contraceptive rate.",
                       optionsList: [QuizOption(id: 191, optionId: "True", color: Color.blue),
                                     QuizOption(id: 192, optionId: "False", color: Color.red)]),
-            QuizModel(question: "In general, sex is allowed three weeks after childbirth.",
-                      answer: "False",
-                      explanation: "It's generally 6 weeks.",
+            QuizModel(question: "In general, sex is allowed six weeks after childbirth.",
+                      answer: "True",
                       optionsList: [QuizOption(id: 201, optionId: "True", color: Color.blue),
                                     QuizOption(id: 202, optionId: "False", color: Color.red)]),
+            QuizModel(question: "Using condom is one of the way to prevent STD.",
+                      answer: "True",
+                      optionsList: [QuizOption(id: 11, optionId: "True", color: Color.blue),
+                                    QuizOption(id: 12, optionId: "False", color: Color.red)])
         ]
     }
 }
