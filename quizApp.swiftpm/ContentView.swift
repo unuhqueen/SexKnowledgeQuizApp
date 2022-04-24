@@ -2,15 +2,10 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var gameManagerVM: GameManagerVM
+
     var body: some View {
         ZStack {
-            Image("condoms")
-                .resizable()
-                .aspectRatio(contentMode: ContentMode.fill)
-                .ignoresSafeArea()
-            
-            LinearGradient(colors: [.purple.opacity(0.4), .pink.opacity(0.4)], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
+            BackgroundView()
             if(gameManagerVM.model.quizCompleted) {
                 QuizCompletedView(gameManagerVM: gameManagerVM)
             } else {
@@ -44,6 +39,10 @@ struct ContentView: View {
                     Spacer()
                     if(gameManagerVM.showExplanation == true) {
                         ReusableText(text: gameManagerVM.model.quizModel.explanation!, size: 25)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(width: UIScreen.main.bounds.size.width - 20, height: 60, alignment: .center)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical)
                     } else {
                         ReusableText(text: " ", size: 25)
                     }
@@ -56,6 +55,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(gameManagerVM: GameManagerVM())
+        NavigationView {
+            ContentView(gameManagerVM: GameManagerVM())
+        }
     }
 }

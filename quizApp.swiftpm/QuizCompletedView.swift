@@ -12,7 +12,7 @@ struct QuizCompletedView: View {
     var gameManagerVM: GameManagerVM
     var body: some View {
         VStack {
-            Image(systemName: "bolt.heart.fill")
+            Image(systemName: "gamecontroller.fill")
                 .foregroundColor(Color.yellow)
                 .font(.system(size: 60))
                 .padding()

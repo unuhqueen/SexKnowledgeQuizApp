@@ -44,7 +44,7 @@ class GameManagerVM : ObservableObject {
                         if(self.model.quizModel.explanation != nil) {
                             self.showExplanation = true
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.showExplanation = false
                             GameManagerVM.currentIndex = GameManagerVM.currentIndex + 1
                             self.model = GameManagerVM.createGameModel(i: GameManagerVM.currentIndex)
